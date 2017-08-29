@@ -485,7 +485,7 @@ function factorial(n) {
   return n * factorial(n - 1);
 }
 
-console.log(factorial(4)); //120
+// console.log(factorial(4)); //120
 
 //*************************************
 //Answer: Linear = O(n)
@@ -500,18 +500,27 @@ For example the 7th fibonacci number in a fibonaci sequence is  13. The sequence
 */
 
 function fibonacci(n) {
+  let counter=0;
+    counter++; 
   // Base case
   if (n <= 0) {
     return 0;
   }
   // Base case
   if (n <= 2) {
+    
     return 1;
   }	
+  test.push(counter);
   // Recursive case
+  // console.log(n)
+  console.log('operations n= 2 or 1', test.length +1)
   return fibonacci(n - 1) + fibonacci(n - 2);	
 }
-// console.log(fibonacci(7));
+// console.log(fibonacci(6));
+
+//*************************************
+//Answer: Polynomial O(n^k)
 
 /*=================================================================================
 Exercise 11 - Organization Chart
@@ -582,13 +591,19 @@ var organization = {
 			}
 }}};
 function traverseB(node, indent=0) {
+  let counter=0;
+    counter++; 
+    test.push(counter);
 	for (var key in node) {
+    console.log('operations', test.length)
 		console.log(" ".repeat(indent), key);
 		traverseB(node[key], indent + 4);
 	}
 }
+traverseB(organization);
 
-// console.log(traverseB(organization));
+//*************************************
+//Answer: Linear = O(n)
 
   </script>
 
