@@ -1,182 +1,3 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-  <meta charset="UTF-8">
-  <title>Big O Practice!</title>
-</head>
-
-<body>
-
-  <script>
-    //Even or odd
-
-    // function isEven(value) {
-    //   if (value % 2 == 0) {
-    //     return true;
-    //   }
-    //   else
-    //     return false;
-    // }
-
-    //Constant = O(1)
-
-    //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
-    //Are you here?
-
-    function areYouHere(arr1, arr2) {
-      for (let i = 0; i < arr1.length; i++) {
-        const el1 = arr1[i];
-        for (let j = 0; j < arr2.length; j++) {
-          const el2 = arr2[j];
-          if (el1 === el2) return true;
-        }
-      }
-      return false;
-    }
-
-    //Polynomial = O(N^2)
-
-    //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
-    //Doubler!
-
-    function doubleArrayValues(array) {
-    for (let i=0; i<array.length; i++) {
-        array[i] *= 2;
-    }
-    return array;
-}
-
-// console.log(doubleArrayValues([2,5,6,7]))
-
-  //Linear = O(N)
-
-  //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
-  //Naive Search
-
-  function naiveSearch(array, item) {
-    for (let i=0; i<array.length; i++) {
-        if (array[i] === item) {
-            return i;
-        }
-    }
-}
-
-//Linear = O(N)
-
-  //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
-  //Creating Pairs
-
-  function createPairs(arr) {
-    for (let i = 0; i < arr.length; i++) {
-        for(let j = i+1; j < arr.length; j++) {
-            console.log(arr[i] + ", " +  arr[j] );
-        }
-    }
-}
-
-// console.log(createPairs([1,2,3]));
-
-//Polynomial - O(n^2)
-
-
-//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-// Computing fibonaccis
-
-function generateFib(num) {
-  let result = [];
-  for (let i = 1; i <= num; i++) {
-
-    // we're adding the first item
-    // to the result list, append the
-    // number 0 to results
-    if (i === 1) {
-      result.push(0);
-    }
-    // ...and if it's the second item
-    // append 1
-    else if (i == 2) {
-      result.push(1);
-    }
-
-    // otherwise, sum the two previous result items, and append that value to results.
-    else {
-      result.push(result[i - 2] + result[i - 3]);
-    }
-  }
-  // once the for loop finishes
-  // we return `result`.
-  return result;
-}
-
-// console.log(generateFib(3))
-// linear O(n)
-
-//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
-//An Efficient Search
-
-function efficientSearch(array, item) {
-    let minIndex = 0;
-    let maxIndex = array.length - 1;
-    let currentIndex;
-    let currentElement;
-
-    while (minIndex <= maxIndex) {
-        currentIndex = Math.floor((minIndex + maxIndex) / 2);
-        currentElement = array[currentIndex];
-
-        if (currentElement < item) {
-            minIndex = currentIndex + 1;
-        }
-        else if (currentElement > item) {
-            maxIndex = currentIndex - 1;
-        }
-        else {
-            return currentIndex;
-        }
-    }
-    return -1;
-}
-// console.log(efficientSearch([1, 2, 4, 7, 9, 10, 12], 10))
-// O(log(n))
-
-
-//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
-// random element
-
-function findRandomElement(arr) {
-    return arr[Math.floor(Math.random() * arr.length)];
-}
-
-// console.log(findRandomElement([1,2,3,4,5,6,7]))
-// O(1)
-
-//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-// is it prime?
-
-function isPrime(n) {
-    // if n is less than 2 or a decimal, it's not prime
-    if (n < 2 || n % 1 != 0) {
-        return false;
-    }
-    // otherwise, check if `n` is divisible by any integer
-    // between 2 and n.
-    for (let i = 2; i < n; ++i) {
-      console.log(i)
-        if (n % i == 0) return false;
-    }
-    return true;
-}
-
-// console.log(isPrime(7))
-
-
 //For each one these exercises identify the Big O. Once you have done so, put a counter
 //variable and now check to see how the counter related to understanding the Big O for 
 //each of these algorithms.
@@ -190,18 +11,11 @@ Finally use a counter to show how your the counter can be helpful in understandi
 run time of this algorithm.
 */
 
-let test = [];
-// console.log(test.length, 'hack')
-
-function generateBinary(n, i=0, toAdd='', s='', ) {
-  let counter=0;  
-  counter++;
+function generateBinary(n, i=0, toAdd='', s='') {
+    counter++;
     s += toAdd;
-     test.push(counter);
-    console.log(test.length, 'test');
     if (i === n) {
         console.log(s);
-
         return;
     }
 
@@ -209,9 +23,7 @@ function generateBinary(n, i=0, toAdd='', s='', ) {
     generateBinary(n, i+1, 1, s);
 }
 
-// generateBinary(3);
-//*************************************
-//exponential = O(2^n)
+generateBinary(3);
 
 
 /*=================================================================================
@@ -233,13 +45,9 @@ sheep jumps over the fence" until no more sheep left.
 
 
 function countSheep(num){
-    let counter = 0;
-    counter++;
-    test.push(counter);
     //stopping condition of base case
     if(num === 0){
         console.log(`All sheep jumped over the fence`);
-        console.log(test.length, 'test')
     } 
     //this is the recursive case
     //this will be executed until it reaches base case
@@ -248,10 +56,7 @@ function countSheep(num){
         countSheep(num-1);
     }
 }
-// countSheep(10);
-
-//*************************************
-//Answer: Linear = O(n)
+countSheep(10);
 
 /*=================================================================================
 Exercise 2 - Array double
@@ -274,9 +79,6 @@ function double_all(arr) {
 var arr = [10,5,3,4];
 console.log(double_all(arr));
 
-//*************************************
-//Answer:
-
 /*=================================================================================
 Exercise 3 - Reverse String
 
@@ -289,7 +91,7 @@ function reverse(str) {
     }
     return reverse(str.slice(1)) + str[0];
 }
-// console.log(reverse("tauhida"));
+console.log(reverse("tauhida"));
 
 /*=================================================================================
 Exercise 4 - Triangular Number
@@ -324,7 +126,7 @@ function split(str, sep) {
         return [str];
     return [str.slice(0, idx)].concat(split(str.slice(idx + sep.length), sep))
 }
-// console.log(split('1/12/2017', '/'));
+console.log(split('1/12/2017', '/'));
 
 /*=================================================================================
 Exercise 6 - Binary Representation
@@ -350,7 +152,7 @@ function convertToBinary(num){
 
 
 }
-// console.log(convertToBinary(25));
+console.log(convertToBinary(25));
 
 /*=================================================================================
 Exercise 7 - Anagrams
@@ -367,13 +169,13 @@ Continue this way until you find all the anagrams for east. There should be 24 o
 */
 
 function printAnagram(word){
-    // console.log(`The word for which we will find an anagram is ${word}`);
+    console.log(`The word for which we will find an anagram is ${word}`);
     anagrams(' ', word);
 
 }
 function anagrams(prefix, str){
     if(str.length <= 1){
-        // console.log(`The anagram is ${prefix}${str}`);
+        console.log(`The anagram is ${prefix}${str}`);
     } else {
         for(let i=0; i<str.length; i++){
             let currentLetter = str.substring(i, i+1);
@@ -407,7 +209,7 @@ function traverse(AnimalHierarchy, parent) {
                    .forEach(item => node[item.id] = traverse(AnimalHierarchy, item.id));
     return node;  
 }
-// console.log(traverse(AnimalHierarchy, null));
+console.log(traverse(AnimalHierarchy, null));
 
 
 /*=================================================================================
@@ -427,7 +229,7 @@ function factorial(n) {
   return n * factorial(n - 1);
 }
 
-// console.log(factorial(5)); //120
+console.log(factorial(5)); //120
 
 /*=================================================================================
 Exercise 10 - Fibonacci
@@ -450,7 +252,7 @@ function fibonacci(n) {
   // Recursive case
   return fibonacci(n - 1) + fibonacci(n - 2);	
 }
-// console.log(fibonacci(7));
+console.log(fibonacci(7));
 
 /*=================================================================================
 Exercise 11 - Organization Chart
@@ -527,10 +329,4 @@ function traverseB(node, indent=0) {
 	}
 }
 
-// console.log(traverseB(organization));
-
-  </script>
-
-</body>
-
-</html>
+console.log(traverseB(organization));
