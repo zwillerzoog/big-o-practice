@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Big O Practice!</title>
+</head>
+
+<body>
+
+  <script>
+    //Even or odd
+
+    // function isEven(value) {
+    //   if (value % 2 == 0) {
+    //     return true;
+    //   }
+    //   else
+    //     return false;
+    // }
+
+    //Constant = O(1)
+
+    //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    //Are you here?
+
+    function areYouHere(arr1, arr2) {
+      for (let i = 0; i < arr1.length; i++) {
+        const el1 = arr1[i];
+        for (let j = 0; j < arr2.length; j++) {
+          const el2 = arr2[j];
+          if (el1 === el2) return true;
+        }
+      }
+      return false;
+    }
+
+    //Polynomial = O(N^2)
+
+    //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    //Doubler!
+
+    function doubleArrayValues(array) {
+    for (let i=0; i<array.length; i++) {
+        array[i] *= 2;
+    }
+    return array;
+}
+
+console.log(doubleArrayValues([2,5,6,7]))
+
+  //Linear = O(N)
+
+  //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+  //Naive Search
+
+  function naiveSearch(array, item) {
+    for (let i=0; i<array.length; i++) {
+        if (array[i] === item) {
+            return i;
+        }
+    }
+}
+
+//Linear = O(N)
+
+  //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+  //Creating Pairs
+
+  function createPairs(arr) {
+    for (let i = 0; i < arr.length; i++) {
+        for(let j = i+1; j < arr.length; j++) {
+            console.log(arr[i] + ", " +  arr[j] );
+        }
+    }
+}
+
+console.log(createPairs([1,2,3]));
+
+//Polynomial - O(n^2)
+
+
+
+
+  </script>
+
+</body>
+
+</html>
