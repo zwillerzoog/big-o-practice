@@ -350,7 +350,7 @@ function split(str, sep) {
     test.push(counter)
     return [str.slice(0, idx)].concat(split(str.slice(idx + sep.length), sep))
 }
-console.log(split('1/12/2017', '/'));
+// console.log(split('1/12/2017', '/'));
 
 //*************************************
 //Answer: linear = O(n)
@@ -370,16 +370,23 @@ and print 11001 as an output. Note that the binary representation of 0 should be
 */
 
 function convertToBinary(num){
+  let counter = 0;
+    counter++;
     if(num>0){
+
         let binary = Math.floor(num%2);
+        test.push(counter)
         return (convertToBinary(Math.floor(num/2))+ binary);
     }else{
+      console.log('operations', test.length + 1)
         return '';
     }
 
 
 }
-// console.log(convertToBinary(25));
+// console.log(convertToBinary(1000));
+//*************************************
+//Answer: Logarithmic = O(log(n))
 
 /*=================================================================================
 Exercise 7 - Anagrams
@@ -401,10 +408,14 @@ function printAnagram(word){
 
 }
 function anagrams(prefix, str){
+  let counter = 0;
+    counter++;
     if(str.length <= 1){
+        // console.log('operations', test.length+1)
         // console.log(`The anagram is ${prefix}${str}`);
     } else {
         for(let i=0; i<str.length; i++){
+          test.push(counter);
             let currentLetter = str.substring(i, i+1);
             let previousLetters = str.substring(0,i);
             let afterLetters = str.substring(i+1);
@@ -413,7 +424,11 @@ function anagrams(prefix, str){
     }
 
 }
-printAnagram("east");
+// printAnagram("easte");
+
+// console.log(convertToBinary(1000));
+//*************************************
+//Answer: Polynomial O(n^k)
 
 /*
 Exercise 8 - Animal Hierarchy
@@ -431,12 +446,19 @@ const AnimalHierarchy = [
 
 // ==============================
 function traverse(AnimalHierarchy, parent) {
+    let counter=0;
+    counter++;
     let node = {};
+    test.push(counter);
+    console.log('operations', test.length+1)
     AnimalHierarchy.filter(item => item.Parent === parent)
                    .forEach(item => node[item.id] = traverse(AnimalHierarchy, item.id));
     return node;  
 }
 // console.log(traverse(AnimalHierarchy, null));
+
+//*************************************
+//Answer: Linear = O(n)
 
 
 /*=================================================================================
@@ -446,17 +468,27 @@ Write a recursive program that finds the factorial of a given number.
 The factorial of a number can be found by multiplying that number by each number 
 between itself and one. The factorial of 5 is equal to 5 * 4 * 3 * 2 * 1 = 120
 */
-function factorial(n) {  
+
+function factorial(n) { 
+  let counter=0;
+    counter++; 
+  
+
   // Base Case - when n is equal to 0, we stop the recursion
   if (n === 0) {
+    console.log('operations', test.length)
     return 1;
   }
+  test.push(counter);
   // Recursive Case
   // It will run for all other conditions except when n is equal to 0
   return n * factorial(n - 1);
 }
 
-// console.log(factorial(5)); //120
+console.log(factorial(4)); //120
+
+//*************************************
+//Answer: Linear = O(n)
 
 /*=================================================================================
 Exercise 10 - Fibonacci
